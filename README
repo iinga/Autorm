@@ -1,0 +1,5 @@
+Auto remove script for CM
+Created by: Luke G
+Support provided by: iinga on #miui-us on freenode
+
+This script will automatically remove files on boot. It was originally created to remove apps that were flashed during CM7 upgrades (particularly nightlies) that were not wanted. It requires the SIAMS script (http://www.github.com/iinga/SIAMS)
