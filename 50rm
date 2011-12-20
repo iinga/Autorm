@@ -4,21 +4,16 @@
 sh /system/bin/siam_rw.sh
 	
 #apps to delete
-#send installed apps to /data/packages
-pm list packages -f > /data/packages
 
 for i in CarHomeLauncher Androidian CarHomeGoogle Cyanbread Protips;
 do
 	if [ -e /system/app/$i.apk ];
 	then
 		rm -f /system/app/$i.apk;
-		grep $i.apk /data/packages > /data/pname;
-		pname2=$(sed 's/\(.*=\)\(.*\)/\2/' /data/pname);
-		pm uninstall $pname2;
+		un=$(pm list packages -f | grep $i.apk | sed 's/\(.*=\)\(.*\)/\2/')
+		pm uninstall $un;
 	fi;
 done;
-rm -f /data/packages
-rm -f /data/pname
 
 #mount system ro
 sh /system/bin/siam_ro.sh
