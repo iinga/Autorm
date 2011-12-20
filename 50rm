@@ -5,12 +5,12 @@ sh /system/bin/siam_rw.sh
 	
 #apps to delete
 
-for i in CarHomeLauncher Androidian CarHomeGoogle Cyanbread Protips;
+for i in CarHomeLauncher Androidian CarHomeGoogle Cyanbread Protips ;
 do
 	if [ -e /system/app/$i.apk ];
 	then
 		rm -f /system/app/$i.apk;
-		un=$(pm list packages -f | grep $i.apk | sed 's/\(.*=\)\(.*\)/\2/')
+		un=$(pm list packages -f | grep $i.apk | sed 's/\(.*=\)\(.*\)/\2/');
 		pm uninstall $un;
 	fi;
 done;
